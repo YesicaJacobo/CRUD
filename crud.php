@@ -24,12 +24,12 @@ validar();
 // Create connection
 $pdo = new PDO('mysql:host=localhost;dbname=' . $dbname, $username, $password);
 
-
 $sql = "SELECT column1, column2, column3, column4, column5 FROM table1";
+ 
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 define("TD", "</td>\n\t<td>");
-
+//echo $sql; <---- Code Smells
 if ($stmt->rowCount() > 0) {
   echo "<table border='1'><tr><th>ID</th><th>Name</th><th>Fecha</th><th>Numero</th><th>NumeroDouble</th><th>Eliminar</th><th>Modificar</th></tr>";
   // output data of each row
